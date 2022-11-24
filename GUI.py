@@ -8,7 +8,7 @@ layout = [[psg.Button(button_text='Go To Talking', size=(
 psg.SetOptions(window_location=(100, 100))
 
 window = psg.Window('', layout, grab_anywhere=False, no_titlebar=True,
-                    size=(300, 200),  margins=(0,0), keep_on_top=True, finalize=True)
+                    size=(300, 200), margins=(0,0), keep_on_top=True, finalize=True)
 
 response = sp.getoutput('tasklist /FI \"IMAGENAME eq notepad.exe\"')
 #print(response)
@@ -22,9 +22,9 @@ while (response == 'INFO: No tasks are running which match the specified criteri
         # go to talking software path
         sp.call(['C:\\WINDOWS\\system32\\Notepad.exe'])
         # sp.call(['D:\Coding\Roman_Drive_Talk_Fix\GUI.py'])
-        taskkill = os.system("taskkill /im notepad.exe") # change to ability drive exe
-        if taskkill == 'ERROR: The process "notepad.exe" not found.': #change notepad to ability drive exe 
-            continue
+        taskkill = os.system("taskkill /im notepad.exe") # change to driving exe
+        if taskkill == '128': #change notepad to ability drive exe 
+            print('hit')
         if response != 'INFO: No tasks are running which match the specified criteria.':
             sp.call(['C:\\WINDOWS\\system32\\Notepad.exe', 'text.txt'])
         window.Reappear()
