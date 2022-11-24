@@ -1,5 +1,3 @@
-# helloworld
-
 import PySimpleGUI as psg
 import subprocess as sp
 import os as os
