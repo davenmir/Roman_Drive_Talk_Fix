@@ -5,12 +5,12 @@ import subprocess as sp
 import os as os
 
 layout = [[psg.Button(button_text='Go To Talking', size=(
-    200, 200), button_color=('black', 'white'))]]
+    300, 300), button_color=('black', 'white'))]]
 
 psg.SetOptions(window_location=(100, 100))
 
-window = psg.Window('', layout, grab_anywhere=False,
-                    size=(200, 100), keep_on_top=True, finalize=True, titlebar_background_color='none')
+window = psg.Window('', layout, grab_anywhere=False, no_titlebar=True,
+                    size=(300, 200),  margins=(0,0), keep_on_top=True, finalize=True)
 
 response = sp.getoutput('tasklist /FI \"IMAGENAME eq notepad.exe\"')
 #print(response)
