@@ -2,15 +2,15 @@
 
 import PySimpleGUI as psg
 import subprocess as sp
-
+import os as os
 
 layout = [[psg.Button(button_text='Go To Talking', size=(
-    200, 200), button_color='white', )]]
+    200, 200), button_color=('black', 'white'))]]
 
 psg.SetOptions(window_location=(100, 100))
 
-window = psg.Window('Hello world', layout, grab_anywhere=False,
-                    size=(200, 100), keep_on_top=True, finalize=True, titlebar_background_color='white')
+window = psg.Window('', layout, grab_anywhere=False,
+                    size=(200, 100), keep_on_top=True, finalize=True, titlebar_background_color='none')
 
 response = sp.getoutput('tasklist /FI \"IMAGENAME eq notepad.exe\"')
 #print(response)
@@ -24,6 +24,9 @@ while (response == 'INFO: No tasks are running which match the specified criteri
         # go to talking software path
         sp.call(['C:\\WINDOWS\\system32\\Notepad.exe'])
         # sp.call(['D:\Coding\Roman_Drive_Talk_Fix\GUI.py'])
+        taskkill = os.system("taskkill /im notepad.exe") # change to ability drive exe
+        if taskkill == 'ERROR: The process "notepad.exe" not found.': #change notepad to ability drive exe 
+            continue
         if response != 'INFO: No tasks are running which match the specified criteria.':
             sp.call(['C:\\WINDOWS\\system32\\Notepad.exe', 'text.txt'])
         window.Reappear()
